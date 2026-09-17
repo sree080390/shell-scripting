@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "All the values passed to script are: $@
+echo "All the values passed to script are: $@"
