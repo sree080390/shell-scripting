@@ -10,3 +10,4 @@ echo "What is current user's home directory: $HOME"
 echo "What is the current process id: $$"
 sleep 5 &
 echo "What is the last process id: $!"
+echo "PID of background process: wait $!"
