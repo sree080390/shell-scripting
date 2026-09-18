@@ -19,3 +19,10 @@ if [ $USER_ID -ne 0 ]; then
 fi
 echo "You are root user. Proceeding with the script execution."
 dnf install -y httpd
+
+if [ $? -ne 0 ]; then
+    echo "Failed to install Apache HTTP Server."
+    echo "script exit with status code 1"   exit 1
+else
+    echo "Apache HTTP Server installed successfully."
+fi
