@@ -11,3 +11,7 @@ echo "What is the current process id: $$"
 sleep 5 &
 echo "What is the last process id: $!"
 echo "PID of background process: wait $!"
+echo "What is the exit status of last command: $?"
+echo "What is the last command executed: $BASH_COMMAND"
+echo "what is the current shell: $SHELL"
+echo "what is line number of current command: $LINENO"
