@@ -10,3 +10,12 @@ elif [ $num -eq 10 ]; then
 else
     echo "The number is less than 10."
 fi
+
+
+USER_ID=$(id -u)
+if [ $USER_ID -ne 0 ]; then
+    echo "You are not root user. Please run the script as root."
+    exit 1
+fi
+echo "You are root user. Proceeding with the script execution."
+dnf install -y httpd
