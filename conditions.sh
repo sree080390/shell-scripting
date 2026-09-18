@@ -33,4 +33,6 @@ if [ $? -ne 0 ]; then
     echo "script exit with status code 1"   exit 1
 else
     echo "Apache HTTP Server installed successfully."
+    dnf enable httpd
+    dnf start httpd
 fi
