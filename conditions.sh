@@ -18,7 +18,15 @@ if [ $USER_ID -ne 0 ]; then
     exit 1
 fi
 echo "You are root user. Proceeding with the script execution."
-dnf install -y httpd
+
+dnf list installed | grep -q httpd
+if [ $? -eq 0 ]; then
+    echo "Apache HTTP Server is already installed."
+else
+    echo "Apache HTTP Server is not installed. Installing..."
+    dnf install -y httpd
+fi
+
 
 if [ $? -ne 0 ]; then
     echo "Failed to install Apache HTTP Server."
