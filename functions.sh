@@ -9,7 +9,7 @@ echo "You are root user. Proceeding with the script execution."
 
 SERVER_TO_BE_INSTALLED=$(read -p "Enter the server to be installed (e.g., httpd, nginx): " SERVER_TO_BE_INSTALLED)
 
-INSTALL ${SERVER_TO_BE_INSTALLED}
+INSTALL $SERVER_TO_BE_INSTALLED
 
 INSTALL () {
     dnf list installed | grep -q $1
