@@ -33,8 +33,7 @@ if [ $? -ne 0 ]; then
     echo "script exit with status code 1"   exit 1
 else
     echo "Apache HTTP Server installed successfully."
-    systemctl enable httpd
-    systemcl start httpd
+    systemctl start httpd
     STATUS=$(systemctl status httpd)
     echo "$STATUS" | grep -q "active (running)"
     if [ $? -eq 0 ]; then
