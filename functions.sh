@@ -1,15 +1,16 @@
 #!/bin/bash
 
 USER_ID=$(id -u)
+SERVER_TO_BE_INSTALLED=$(read -p "Enter the server to be installed (e.g., httpd, nginx): " SERVER_TO_BE_INSTALLED)
 if [ $USER_ID -ne 0 ]; then
     echo "You are not root user. Please run the script as root."
     exit 1
 fi
 echo "You are root user. Proceeding with the script execution."
 
-SERVER_TO_BE_INSTALLED=$(read -p "Enter the server to be installed (e.g., httpd, nginx): " SERVER_TO_BE_INSTALLED)
 
-INSTALL $SERVER_TO_BE_INSTALLED
+
+
 
 INSTALL () {
     dnf list installed | grep -q $1
@@ -38,3 +39,4 @@ fi
 
 }
 
+INSTALL "$SERVER_TO_BE_INSTALLED"
