@@ -10,7 +10,16 @@ if [ $USER_ID -ne 0 ]; then
 fi
 echo "You are root user. Proceeding with the script execution."
 
-
+STATUS_VALIDATE () {
+    systemctl start $1
+    STATUS=$(systemctl status $1)
+    echo "$STATUS" | grep -q "active (running)"
+    if [ $? -eq 0 ]; then
+        echo "$1 is running."
+    else
+        echo "$1 failed to start."
+    fi
+}
 
 INSTALL () {
     dnf list installed | grep -q $1
@@ -24,13 +33,10 @@ else
         echo "script exit with status code 1"   exit 1
     else
         echo "$1 installed successfully."
-        systemctl start $1 &>> $STATUS_LOGS_FILE
-        STATUS=$(systemctl status $1)
-        echo "$STATUS" | grep -q "active (running)" &>> $STATUS_LOGS_FILE
-        if [ $? -eq 0 ]; then
-            echo "$1 is running."
+        if [ $1 == "mysql-server" ];then
+            STATUS_VALIDATE $mysqld
         else
-            echo "$1 failed to start."
+            STATUS_VALIDATE $1
         fi
     fi
 fi
