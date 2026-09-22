@@ -34,7 +34,7 @@ else
     else
         echo "$1 installed successfully."
         if [ $1 == "mysql-server" ];then
-            STATUS_VALIDATE $mysqld
+            STATUS_VALIDATE mysqld
         else
             STATUS_VALIDATE $1
         fi
