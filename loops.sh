@@ -47,6 +47,4 @@ else
 fi
 }
 INSTALL ()
-done    
-
-
+done
