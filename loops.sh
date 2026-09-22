@@ -4,10 +4,10 @@ USER_ID=$(id -u)
 INSTALL_LOGS_FILE="/var/log/shell-script.log"
 STATUS_LOGS_FILE="/var/log/shell-script-status.log"
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
-R="\e[31m]"
-Y="\e[33m]"
-G="\e[32m]"
-N="\e[0m]"
+R="\e[31m"
+Y="\e[33m"
+G="\e[32m"
+N="\e[0m"
 #read -p "Enter the server to be installed (e.g., httpd, nginx): " SERVER_TO_BE_INSTALLED
 if [ $USER_ID -ne 0 ]; then
     echo "Script execution started at $TIMESTAMP" | tee -a $STATUS_LOGS_FILE
