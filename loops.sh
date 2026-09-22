@@ -46,5 +46,5 @@ else
     fi
 fi
 }
-INSTALL $@
+INSTALL
 done
