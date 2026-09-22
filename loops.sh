@@ -22,7 +22,7 @@ STATUS_VALIDATE () {
     STATUS=$(systemctl status $1)
     echo "$TIMESTAMP [INFO] $STATUS" | grep -q "active (running)" | tee -a $STATUS_LOGS_FILE
     if [ $? -eq 0 ]; then
-        echo "$TIMESTAMP [INFO] $1 is running." | tee -a $STATUS_LOGS_FILE
+        echo -e "$TIMESTAMP [INFO] $1 is $G running.$N" | tee -a $STATUS_LOGS_FILE
     else
         echo -e "$TIMESTAMP [ERROR] $1 $R failed to start.$N" | tee -a $STATUS_LOGS_FILE
     fi
