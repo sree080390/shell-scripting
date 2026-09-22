@@ -12,8 +12,7 @@ if [ $USER_ID -ne 0 ]; then
 fi
 echo "$TIMESTAMP [INFO] You are root user. Proceeding with the script execution."
 
-for packages in $@ 
-do
+
 STATUS_VALIDATE () {
     systemctl start $1 | tee -a $STATUS_LOGS_FILE
     STATUS=$(systemctl status $1)
@@ -46,5 +45,9 @@ else
     fi
 fi
 }
-INSTALL
+
+for packages in $@
+do
+    INSTALL "$packages"
 done
+
