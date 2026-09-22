@@ -36,5 +36,3 @@ else
 fi
 }
 INSTALL "$SERVER_TO_BE_INSTALLED"
-
-
